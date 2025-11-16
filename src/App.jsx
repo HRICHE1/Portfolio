@@ -33,7 +33,15 @@ export default function Portfolio() {
       description: "A modern food delivery app focused on user experience and minimalism.",
       figmaLink: "https://www.figma.com/design/5F6ZUfcR0PuKM88YIp7erG/Untitled?node-id=0-1&t=lCvzG8teG8qwa3c7-1",
       color: "from-purple-400 to-pink-400"
+    },
+    {
+      title: "HR WebCraft Platform",
+      description: "A sleek web platform designed to showcase services, streamline client interactions, and enhance user experience.",
+      figmaLink: "https://hr-web-craft.netlify.app/",
+      color: "from-purple-400 to-pink-400"
     }
+    
+    
   ];
 
   const services = [
@@ -231,37 +239,41 @@ export default function Portfolio() {
           </div>
         </section>
       )}
-
-      {/* Projects Section */}
-      {activeSection === 'projects' && (
-        <section className="relative min-h-screen px-6 py-32 flex items-center justify-center">
-          <div className={`${projects.length === 1 ? 'max-w-4xl' : 'max-w-6xl'} mx-auto relative z-10`}>
-            <h2 className="text-5xl md:text-8xl font-bold mb-16 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">My Projects</h2>
-            <div className={projects.length === 1 ? 'flex justify-center' : 'grid md:grid-cols-2 gap-8'}>
-              {projects.map((project, index) => (
-                <div 
-                  key={index}
-                  className="border-2 border-purple-500/30 bg-slate-900/50 backdrop-blur-sm p-16 rounded-3xl text-center hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/30 transition-all"
-                >
-                  <h3 className="text-4xl md:text-5xl font-bold mb-6 text-purple-300">{project.title}</h3>
-                  <p className="text-xl text-gray-300 mb-8">{project.description}</p>
-                  {project.figmaLink && (
-                    <a 
-                      href={project.figmaLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xl text-purple-300 hover:text-purple-400 transition-colors group"
-                    >
-                      🔗 View on Figma
-                      <ArrowRight size={20} className="transform group-hover:translate-x-2 transition-transform" />
-                    </a>
-                  )}
-                </div>
-              ))}
-            </div>
+      
+{/* Projects Section */}
+{activeSection === 'projects' && (
+  <section className="relative min-h-screen px-6 py-32 flex items-center justify-center">
+    <div className={`${projects.length === 1 ? 'max-w-4xl' : 'max-w-6xl'} mx-auto relative z-10`}>
+      <h2 className="text-5xl md:text-8xl font-bold mb-16 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        My Projects
+      </h2>
+      <div className={projects.length === 1 ? 'flex justify-center' : 'grid md:grid-cols-2 gap-8'}>
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="border-2 border-purple-500/30 bg-slate-900/50 backdrop-blur-sm p-16 rounded-3xl text-center hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/30 transition-all"
+          >
+            <h3 className={`text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r ${project.color}`}>
+              {project.title}
+            </h3>
+            <p className="text-xl text-gray-300 mb-8">{project.description}</p>
+            {project.figmaLink && (
+              <a
+                href={project.figmaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xl text-purple-300 hover:text-purple-400 transition-colors group"
+              >
+                {project.figmaLink.includes('figma.com') ? '🔗 View on Figma' : '🔗 View Live'}
+                <ArrowRight size={20} className="transform group-hover:translate-x-2 transition-transform" />
+              </a>
+            )}
           </div>
-        </section>
-      )}
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
       {/* Contact Section */}
       {activeSection === 'contact' && (
